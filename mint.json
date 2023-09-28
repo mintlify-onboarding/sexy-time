@@ -1,0 +1,138 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Mintlify",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://mintlify.com"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#2AB673",
+    "light": "#55D799",
+    "dark": "#117866",
+    "anchors": {
+      "from": "#117866",
+      "to": "#2AB673"
+    }
+  },
+  "api": {
+    "auth": {
+      "method": "bearer"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Community",
+      "url": "https://mintlify.com/community"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://mintlify.com/start"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-playground"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["quickstart", "development"]
+    },
+    {
+      "group": "Styling",
+      "pages": [
+        "settings/global",
+        "settings/navigation",
+        "settings/custom-styling",
+        "settings/ctas-footers"
+      ],
+      "icon": "pencil"
+    },
+    {
+      "group": "Configurations",
+      "pages": [
+        {
+          "group": "Custom Domain",
+          "pages": [
+            "settings/custom-domain/subdomain",
+            "settings/custom-domain/subdirectory"
+          ]
+        },
+        "settings/seo",
+        "settings/broken-links",
+        "settings/versioning",
+        "settings/add-members"
+      ]
+    },
+    {
+      "group": "Writing Content",
+      "pages": [
+        "content/page",
+        "content/text",
+        "content/image-embeds",
+        "content/list-table",
+        "content/code",
+        "content/reusable-snippets"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/customer-support",
+        {
+          "group": "Analytics",
+          "pages": [
+            "integrations/analytics/overview",
+            "integrations/analytics/amplitude",
+            "integrations/analytics/clearbit",
+            "integrations/analytics/fathom",
+            "integrations/analytics/google-analytics",
+            "integrations/analytics/google-tag-manager",
+            "integrations/analytics/hotjar",
+            "integrations/analytics/koala",
+            "integrations/analytics/logrocket",
+            "integrations/analytics/mixpanel",
+            "integrations/analytics/pirsch",
+            "integrations/analytics/plausible",
+            "integrations/analytics/posthog"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Organization Components",
+      "pages": [
+        "content/components/accordion",
+        "content/components/accordion-group",
+        "content/components/card",
+        "content/components/card-group",
+        "content/components/steps",
+        "content/components/tabs"
+      ]
+    },
+    {
+      "group": "Context Components",
+      "pages": [
+        "content/components/callouts",
+        "content/components/code",
+        "content/components/code-group",
+        "content/components/frame",
+        "content/components/tooltip",
+        "content/api-components"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/mintlify",
+    "slack": "https://mintlify.com/community",
+    "twitter": "https://twitter.com/mintlify"
+  }
+}
