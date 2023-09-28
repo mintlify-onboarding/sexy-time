@@ -23,12 +23,14 @@ paths:
         schema:
           type: string
     get:
-      summary: Fetch the profile picture of an employee
+      summary: Fetch Profile Picture
       responses:
         200:
           description: Success
           content:
-            image/png: {}
+            image/png:
+              schema:
+                type: string
   '/employee-api/users/{user_id}/name-pronunciation':
     parameters:
       - name: user_id
@@ -37,12 +39,14 @@ paths:
         schema:
           type: string
     get:
-      summary: Fetch an audio file with the name pronunciation of an employee
+      summary: Fetch Name Pronunciation
       responses:
         200:
           description: Success
           content:
-            audio/mpeg: {}
+            audio/mpeg:
+              schema:
+                type: string
 
   /employee-api/users/{user_id}/project/{project_id}:
     parameters:
@@ -57,7 +61,7 @@ paths:
           type: string
         in: path
     get:
-      summary: Fetch project stats for a given user
+      summary: Fetch Project Info
       responses:
         200:
           description: Success
@@ -71,7 +75,7 @@ paths:
                   hours:
                     type: integer
     post:
-      summary: Fetch project stats for a given user
+      summary: Post Project Info
       requestBody:
         content:
           application/json:
@@ -82,16 +86,24 @@ paths:
                   properties:
                     department:
                       type: string
+                      description: The department under which this project falls. If the project falls under multiple categories, choose the closest one.
+                      example: Engineering
                       enum:
                         - Engineering
                         - Design
                         - Sales
                     start_date:
                       type: string
+                      description: The start date for the project. Should be in Standard ISO format.
+                      example: '2022-07-15'
                     summary: 
                       type: string
+                      description: A short summary of the work that was performed. Limit 300 characters.
+                      example: Created designs for a potential building in downtown.
                     hours_logged:
                       type: integer
+                      description: 
+                      example: 40
                     comments:
                       type: array
                       items:
@@ -103,6 +115,8 @@ paths:
                             type: string
                     complete:
                       type: boolean
+                      description: Whether the project is complete.
+                      example: true
                   required:
                     - department
                     - start_date
@@ -113,12 +127,28 @@ paths:
                   properties:
                     client:
                       type: string
+                      description: The name of the company for which the work was performed.
+                      example: Corporations Ltd
                     external_manager:
+                      type: object
+                      description: The contact details of the manager under which the project was performed.
+                      properties:
+                        first_name:
+                          type: string
+                        last_name: 
+                          type: string
+                      required:
+                        - first_name
+                        - last_name
                       type: string
                     start_date:
                       type: string
+                      description: The start date for the project. Should be in Standard ISO format.
+                      example: '2022-07-15'
                     summary: 
                       type: string
+                      description: A short summary of the work that was performed. Limit 300 characters.
+                      example: Created designs for a potential building in downtown.
                     hours_billed:
                       type: integer
                     additional_data:
@@ -129,6 +159,8 @@ paths:
                           - string
                     complete:
                       type: boolean
+                      description: Whether the project is complete.
+                      example: true
                   required:
                     - department
                     - start_date
