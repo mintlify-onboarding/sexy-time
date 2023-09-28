@@ -140,7 +140,6 @@ paths:
                       required:
                         - first_name
                         - last_name
-                      type: string
                     start_date:
                       type: string
                       description: The start date for the project. Should be in Standard ISO format.
