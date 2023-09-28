@@ -19,7 +19,8 @@
   "api": {
     "auth": {
       "method": "bearer"
-    }
+    },
+    "maintainOrder": true
   },
   "topbarLinks": [
     {
