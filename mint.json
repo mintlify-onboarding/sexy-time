@@ -128,6 +128,15 @@
         "content/components/tooltip",
         "content/api-components"
       ]
+    },
+    {
+      "group": "API Playground",
+      "pages": [
+        "api-playground/fetch-the-profile-picture-of-an-employee",
+        "api-playground/fetch-an-audio-file-with-the-name-pronunciation-of-an-employee",
+        "api-playground/fetch-project-stats-for-a-given-user",
+        "api-playground/fetch-project-stats-for-a-given-user-1"      
+      ]
     }
   ],
   "footerSocials": {

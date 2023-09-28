@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Foo
+  version: '1.0.0'
+servers:
+  - url: https://docs.mintlify.com
+    description: Production Server
+  - url: http://localhost:8000
+    description: Local Development
+components:
+  securitySchemes:
+    Authorization:
+      type: http
+      scheme: bearer
+security: 
+  - Authorization: []
+paths:
+  '/employee-api/users/{user_id}/profile-picture':
+    parameters:
+      - name: user_id
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      summary: Fetch the profile picture of an employee
+      responses:
+        200:
+          description: Success
+          content:
+            image/png: {}
+  '/employee-api/users/{user_id}/name-pronunciation':
+    parameters:
+      - name: user_id
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      summary: Fetch an audio file with the name pronunciation of an employee
+      responses:
+        200:
+          description: Success
+          content:
+            audio/mpeg: {}
+
+  /employee-api/users/{user_id}/project/{project_id}:
+    parameters:
+      - name: user_id
+        required: true
+        schema:
+          type: string
+        in: path
+      - name: project_id
+        required: true
+        schema:
+          type: string
+        in: path
+    get:
+      summary: Fetch project stats for a given user
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  hours:
+                    type: integer
+    post:
+      summary: Fetch project stats for a given user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  title: InternalProject
+                  properties:
+                    department:
+                      type: string
+                      enum:
+                        - Engineering
+                        - Design
+                        - Sales
+                    start_date:
+                      type: string
+                    summary: 
+                      type: string
+                    hours_logged:
+                      type: integer
+                    comments:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          date:
+                            type: string
+                          contents:
+                            type: string
+                    complete:
+                      type: boolean
+                  required:
+                    - department
+                    - start_date
+                    - summary
+                    - complete
+                - type: object
+                  title: ExternalProject
+                  properties:
+                    client:
+                      type: string
+                    external_manager:
+                      type: string
+                    start_date:
+                      type: string
+                    summary: 
+                      type: string
+                    hours_billed:
+                      type: integer
+                    additional_data:
+                      type: array
+                      items:
+                        type:
+                          - number
+                          - string
+                    complete:
+                      type: boolean
+                  required:
+                    - department
+                    - start_date
+                    - summary
+                    - complete
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  hours:
+                    type: integer
